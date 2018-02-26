@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+/**
+ * Our variables definition for the build script
+ */
+apply from: 'gradle/var_definition.gradle'
+
+android {
+    compileSdkVersion project.compileSdk
+    buildToolsVersion project.buildToolsVersion
+    defaultConfig {
+        applicationId "com.sample.niki.photosharing"
+        vectorDrawables.useSupportLibrary = project.useSupportLibVectorDrawable
+        // Other settings here
+        multiDexEnabled true
+        //use Dart and Henson
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ['dart.henson.package': 'core.service.kamereon.org.nissan.nci.henson']
+
+            }
+        }
+        versionName project.ext.versionName
+        versionCode project.ext.versionCode
+        minSdkVersion project.minSdk
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        //SourceSets for Memonto
+        main.res.srcDirs += 'src/main/res/crossfeature'
+        main.res.srcDirs += 'src/main/res/login'
+        main.res.srcDirs += 'src/main/res/splash'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //Dart and Henson
+    implementation "com.f2prateek.dart:dart:${dart}"
+    implementation "com.f2prateek.dart:henson:${henson}"
+    annotationProcessor "com.f2prateek.dart:dart-processor:${dart}"
+    annotationProcessor "com.f2prateek.dart:henson-processor:${henson}"
+    implementation('com.crashlytics.sdk.android:answers:1.4.1@aar') {
+        transitive = true;
+    }
+}
