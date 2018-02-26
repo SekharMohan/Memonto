@@ -10,10 +10,7 @@ import android.view.WindowManager;
 import com.acms.nissanconnectbox.R;
 import com.acms.nissanconnectbox.cross.MemontoLog;
 
-/**
- * Created by Renault Nissan Technology & Business Center India Pvt Ltd
- * Copyright (c) 2016 Renault Nissan Technology & Business Center India Pvt Ltd
- */
+
 public class Loader {
 
     private static Dialog progressDialog = null;
