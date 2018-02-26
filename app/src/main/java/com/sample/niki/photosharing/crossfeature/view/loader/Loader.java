@@ -7,8 +7,7 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.acms.nissanconnectbox.R;
-import com.acms.nissanconnectbox.cross.MemontoLog;
+
 
 
 public class Loader {

@@ -15,7 +15,7 @@ android {
         //use Dart and Henson
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = ['dart.henson.package': 'core.service.kamereon.org.nissan.nci.henson']
+                arguments = ['dart.henson.package': 'com.sample.niki.photosharing']
 
             }
         }
